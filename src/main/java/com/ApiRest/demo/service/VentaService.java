@@ -1,5 +1,6 @@
 package com.ApiRest.demo.service;
 
+import com.ApiRest.demo.entity.Producto;
 import com.ApiRest.demo.entity.Venta;
 import com.ApiRest.demo.repository.IVentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,18 @@ public class VentaService {
 
     public List<Venta> listarVentaByFecha(String fecha){
         return ventaRepository.findByFechaContaining(fecha);
+    }
+
+    public List<Venta> listarVentaByNombreProducto(String nombreProducto){
+        return ventaRepository.findByNombreProductoContaining(nombreProducto);
+    }
+
+    public List<Venta> listarVentaByValorTotal(Double valorTotal){
+        return ventaRepository.findByValorTotal(valorTotal);
+    }
+
+    public List<Venta> getProductoByCodigoProducto(Integer codigoProducto){
+        return ventaRepository.findByCodigoProducto(codigoProducto);
     }
 
 }
